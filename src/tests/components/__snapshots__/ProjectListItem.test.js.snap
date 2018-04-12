@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the ProjectListItem component correctly 1`] = `
+<Link
+  className="list-item"
+  replace={false}
+  to="/edit/undefined"
+>
+  <div>
+    <h3
+      className="list-item__title"
+    />
+    <p
+      className="list-item__subtitle"
+    >
+      test
+    </p>
+  </div>
+  <p
+    className="list-item__data"
+  />
+</Link>
+`;

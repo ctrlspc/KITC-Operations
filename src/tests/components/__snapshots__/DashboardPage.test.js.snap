@@ -2,6 +2,49 @@
 
 exports[`should render a DashboardPage component 1`] = `
 <div>
-  Dashboard Page Content
+  <div
+    className="page-header"
+  >
+    <div
+      className="content-container"
+    >
+      <h1
+        className="page-header__title"
+      >
+        Projects Dashboard
+      </h1>
+      <div
+        className="page-header__actions"
+      >
+        <Link
+          className="button"
+          replace={false}
+          to="/create"
+        >
+          Create a Project
+        </Link>
+      </div>
+    </div>
+  </div>
+  <div
+    className="content-container"
+  >
+    <Component
+      projects={
+        Array [
+          Object {
+            "description": "a description",
+            "id": "123",
+            "projectManager": Object {
+              "id": "1",
+              "name": "Jason Marshall",
+            },
+            "projectType": "int",
+            "title": "A project",
+          },
+        ]
+      }
+    />
+  </div>
 </div>
 `;

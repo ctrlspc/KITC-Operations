@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the EditProjectPage component correctly 1`] = `
+<div
+  className="content-container"
+>
+  <h1>
+    Edit an existing Project
+  </h1>
+  <ProjectForm
+    onSubmit={[Function]}
+    project={
+      Object {
+        "description": "A great project",
+        "projectManager": "2",
+        "projectType": "ext",
+        "title": "A Test title",
+      }
+    }
+    projectManagers={
+      Array [
+        Object {
+          "id": "1",
+          "name": "Jason Marshall",
+        },
+        Object {
+          "id": "2",
+          "name": "Bec Lloyds",
+        },
+      ]
+    }
+  />
+</div>
+`;

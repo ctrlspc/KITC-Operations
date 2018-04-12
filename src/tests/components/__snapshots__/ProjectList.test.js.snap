@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the ProjectList component correctly 1`] = `
+<div>
+  <div
+    className="list-header"
+  >
+    <div
+      className="show-for-mobile"
+    >
+      Projects
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Project
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Type
+    </div>
+  </div>
+  <div
+    className="list-body"
+  >
+    <p>
+      No Projects!
+    </p>
+  </div>
+</div>
+`;

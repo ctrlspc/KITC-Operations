@@ -1,0 +1,32 @@
+.select-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $m-size;
+
+  @media (min-width: $desktop-breakpoint) {
+    flex-direction: row;
+    margin-bottom: $l-size;
+  }
+}
+
+.select-group__item {
+  margin-bottom: $s-size;
+
+  @media (min-width: $desktop-breakpoint) {
+    margin: 0 $s-size 0 0;
+  }
+}
+
+.select-group__title {
+  margin: 0;
+  font-weight: 500;
+}
+
+.select-group__select {
+  border: 1px solid #cacccd;
+  height: 50px;
+  width: 250px;
+  font-size: $font-size-large;
+  font-weight: 300;
+  padding: $s-size;
+}
