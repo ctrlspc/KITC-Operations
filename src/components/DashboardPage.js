@@ -16,15 +16,7 @@ const DashboardPage = () => (
       </div>
     </div>
     <div className="content-container">
-      <ProjectList projects={[
-        {
-          id:'123',
-          title:'A project',
-          description:'a description',
-          projectManager:{id:'1',name:'Jason Marshall'},
-          projectType:'int'
-        }
-      ]} />
+      <ProjectList />
     </div>
   </div>
   

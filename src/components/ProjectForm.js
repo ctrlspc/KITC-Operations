@@ -8,7 +8,7 @@ export default class ProjectForm extends React.Component {
     this.state = {
       title: project ? project.title : '',
       description: project ? project.description : '',
-      projectManager: project ? project.projectManager  : '' ,
+      projectManager: project ? project.projectManager.id  : this.props.projectManagers[0].id ,
       projectType: project ? project.projectType : 'ext',
       error:''
     };
@@ -37,7 +37,7 @@ export default class ProjectForm extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    if(!this.state.title || !this.state.description) {
+    if(!this.state.title || !this.state.description || !this.state.projectManager) {
       this.setState(() => ({error:'Please provide a title and project description'}));
     } else {
       this.setState(() => ({error:''}));
@@ -45,7 +45,7 @@ export default class ProjectForm extends React.Component {
         title: this.state.title,
         description: this.state.description,
         projectManager: this.props.projectManagers.find((element) => {
-          return element.id === this.state.projectManager.id
+         return element.id === this.state.projectManager
         }) ,
         projectType: this.state.projectType
       });

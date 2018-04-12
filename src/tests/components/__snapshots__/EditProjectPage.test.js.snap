@@ -11,10 +11,14 @@ exports[`should render the EditProjectPage component correctly 1`] = `
     onSubmit={[Function]}
     project={
       Object {
-        "description": "A great project",
-        "projectManager": "2",
-        "projectType": "ext",
-        "title": "A Test title",
+        "description": "testing some great stuff",
+        "id": "1",
+        "projectManager": Object {
+          "id": "1",
+          "name": "Mr Test",
+        },
+        "projectType": "int",
+        "title": "first test project",
       }
     }
     projectManagers={

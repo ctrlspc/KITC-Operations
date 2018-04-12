@@ -1,10 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import ProjectForm from './ProjectForm';
-export default class CreateProjectPage extends React.Component {
+import { addProject } from '../actions/projects';
+
+export class CreateProjectPage extends React.Component {
 
 
   onSubmit = (project) => {
-    console.log('project submitted', project);
+    this.props.addProject(project);
+    this.props.history.push('/');
   };
 
   render () {
@@ -22,5 +27,10 @@ export default class CreateProjectPage extends React.Component {
   };
 };
 
+const mapDispatchToProps = (dispatch) => ({
+  addProject: (project) => dispatch(addProject(project))
+})
+
+export default connect(undefined, mapDispatchToProps)(CreateProjectPage);
 
 

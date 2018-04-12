@@ -41,6 +41,18 @@ exports[`should render form correctly with no project data 1`] = `
         >
           Mr Test
         </option>
+        <option
+          key="2"
+          value="2"
+        >
+          Mr Testy
+        </option>
+        <option
+          key="3"
+          value="3"
+        >
+          Mr Grumpy
+        </option>
       </select>
     </div>
     <div
@@ -91,7 +103,7 @@ exports[`should render form correctly with project data passed in 1`] = `
     onChange={[Function]}
     placeholder="Project Name"
     type="text"
-    value="a super test project"
+    value="first test project"
   />
   <textarea
     className="textarea"
@@ -114,13 +126,24 @@ exports[`should render form correctly with project data passed in 1`] = `
         className="select-group__select"
         id="project-manager"
         onChange={[Function]}
-        value="1"
       >
         <option
           key="1"
           value="1"
         >
           Mr Test
+        </option>
+        <option
+          key="2"
+          value="2"
+        >
+          Mr Testy
+        </option>
+        <option
+          key="3"
+          value="3"
+        >
+          Mr Grumpy
         </option>
       </select>
     </div>
@@ -200,7 +223,26 @@ exports[`should set an error for an invalid submission 1`] = `
         className="select-group__select"
         id="project-manager"
         onChange={[Function]}
-      />
+      >
+        <option
+          key="1"
+          value="1"
+        >
+          Mr Test
+        </option>
+        <option
+          key="2"
+          value="2"
+        >
+          Mr Testy
+        </option>
+        <option
+          key="3"
+          value="3"
+        >
+          Mr Grumpy
+        </option>
+      </select>
     </div>
     <div
       className="select-group__item"

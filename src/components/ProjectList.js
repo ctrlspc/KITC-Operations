@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import ProjectListItem from './ProjectListItem';
 
-export default (props) => (
+export const ProjectList = (props) => (
   <div>
     <div className="list-header">
       <div className="show-for-mobile">Projects</div>
@@ -19,3 +21,10 @@ export default (props) => (
     </div>
   </div>
 )
+
+const mapStateToProps = (state) => ({
+  projects: state.projects
+});
+
+
+export default connect(mapStateToProps)(ProjectList);

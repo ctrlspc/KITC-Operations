@@ -6,6 +6,10 @@ import AppRouter, { history } from './routers/AppRouter';
 
 import configureStore from './store/configureStore';
 import { login, logout } from './actions/auth';
+import { setProjects } from './actions/projects';
+
+import projects from './tests/fixtures/projects';
+
 import LoadingPage from './components/LoadingPage';
 import { firebase } from './firebase/firebase';
 
@@ -47,5 +51,7 @@ firebase.auth().onAuthStateChanged((user) => {
     history.push('/');
   }
 });
+
+store.dispatch(setProjects(projects));
 
 

@@ -29,22 +29,7 @@ exports[`should render a DashboardPage component 1`] = `
   <div
     className="content-container"
   >
-    <Component
-      projects={
-        Array [
-          Object {
-            "description": "a description",
-            "id": "123",
-            "projectManager": Object {
-              "id": "1",
-              "name": "Jason Marshall",
-            },
-            "projectType": "int",
-            "title": "A project",
-          },
-        ]
-      }
-    />
+    <Connect(ProjectList) />
   </div>
 </div>
 `;
