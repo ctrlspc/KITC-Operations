@@ -38,13 +38,13 @@ test('should set the project description', () => {
 
 test('should set the project manager', () => {
   const wrapper = shallow(<ProjectForm projectManagers={users}/>);
-  const value = 'id123';
+  const value = '1';
 
   wrapper.find('#project-manager').at(0).simulate('change', {
     target: {value}
   });
 
-  expect(wrapper.state('projectManager')).toBe(value);
+  expect(wrapper.state('projectManager')).toBe(users[0]);
 });
 
 test('should set the project type', () => {

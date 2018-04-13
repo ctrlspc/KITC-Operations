@@ -9,18 +9,6 @@ exports[`should render the CreateProjectPage component correctly 1`] = `
   </h1>
   <ProjectForm
     onSubmit={[Function]}
-    projectManagers={
-      Array [
-        Object {
-          "id": "1",
-          "name": "Jason Marshall",
-        },
-        Object {
-          "id": "2",
-          "name": "Bec Lloyds",
-        },
-      ]
-    }
   />
 </div>
 `;

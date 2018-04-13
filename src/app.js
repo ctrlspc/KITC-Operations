@@ -16,6 +16,8 @@ import { firebase } from './firebase/firebase';
 import 'normalize.css/normalize.css'; //reset browser css so that we are starting from same place
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css'
+import { setProjectManagers } from './actions/projectManagers';
+import users from './tests/fixtures/users';
 
 
 
@@ -45,6 +47,8 @@ firebase.auth().onAuthStateChanged((user) => {
     if(history.location.pathname === '/') {
       history.push('/dashboard');
     }
+    store.dispatch(setProjects(projects));
+    store.dispatch(setProjectManagers(users));
   } else {
     renderApp();
     store.dispatch(logout());
@@ -52,6 +56,6 @@ firebase.auth().onAuthStateChanged((user) => {
   }
 });
 
-store.dispatch(setProjects(projects));
+
 
 

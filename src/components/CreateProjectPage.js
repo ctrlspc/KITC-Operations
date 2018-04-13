@@ -18,9 +18,7 @@ export class CreateProjectPage extends React.Component {
         <h1>Create a new Project</h1>
         <ProjectForm 
           onSubmit={this.onSubmit} 
-          projectManagers={[
-            {id:'1',name:'Jason Marshall'}, {id:'2', name:'Bec Lloyds'}
-          ]}
+          projectManagers={this.props.projectManagers}
         />
       </div>
     );
@@ -29,8 +27,12 @@ export class CreateProjectPage extends React.Component {
 
 const mapDispatchToProps = (dispatch) => ({
   addProject: (project) => dispatch(addProject(project))
-})
+});
 
-export default connect(undefined, mapDispatchToProps)(CreateProjectPage);
+export const mapStateToProps = (state) => ({
+  projectManagers: state.projectManagers
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateProjectPage);
 
 

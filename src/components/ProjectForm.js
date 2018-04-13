@@ -8,7 +8,7 @@ export default class ProjectForm extends React.Component {
     this.state = {
       title: project ? project.title : '',
       description: project ? project.description : '',
-      projectManager: project ? project.projectManager.id  : this.props.projectManagers[0].id ,
+      projectManager: project ? project.projectManager  : this.props.projectManagers[0] ,
       projectType: project ? project.projectType : 'ext',
       error:''
     };
@@ -25,7 +25,9 @@ export default class ProjectForm extends React.Component {
   };
 
   onManagerChange = (e) => {
-    const projectManager = e.target.value;
+    const projectManager = this.props.projectManagers.find((projectManager) => {
+      return projectManager.id === e.target.value
+    });
     this.setState(() => ({projectManager}));
   };
 
@@ -44,9 +46,7 @@ export default class ProjectForm extends React.Component {
       this.props.onSubmit({
         title: this.state.title,
         description: this.state.description,
-        projectManager: this.props.projectManagers.find((element) => {
-         return element.id === this.state.projectManager
-        }) ,
+        projectManager: this.state.projectManager ,
         projectType: this.state.projectType
       });
     }
@@ -77,7 +77,7 @@ export default class ProjectForm extends React.Component {
               className="select-group__select"
               id="project-manager"
               onChange={this.onManagerChange}
-              value={this.state.projectManager.id}
+              value={!!this.state.projectManager ? this.state.projectManager.id : ''}
             >
               {this.props.projectManagers && this.props.projectManagers.map((item) => {
                 return <option key={item.id} value={item.id}>{item.name}</option> 

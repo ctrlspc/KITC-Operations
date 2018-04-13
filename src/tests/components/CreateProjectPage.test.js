@@ -1,7 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { CreateProjectPage } from '../../components/CreateProjectPage';
+import { CreateProjectPage, mapStateToProps } from '../../components/CreateProjectPage';
 import projects from '../fixtures/projects';
+import users from '../fixtures/users';
 
 let addProject, history, wrapper;
 
@@ -20,3 +21,11 @@ test('should handle onSubmit', () => {
   expect(addProject).toHaveBeenLastCalledWith(projects[0]);
   expect(history.push).toHaveBeenLastCalledWith('/');
 })
+
+test('should map state to props correctly', () => {
+  const state = {
+    projectManagers: users
+  };
+  const map = mapStateToProps(state);
+  expect(map.projectManagers).toEqual(users);
+});

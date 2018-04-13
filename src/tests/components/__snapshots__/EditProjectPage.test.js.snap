@@ -21,18 +21,6 @@ exports[`should render the EditProjectPage component correctly 1`] = `
         "title": "first test project",
       }
     }
-    projectManagers={
-      Array [
-        Object {
-          "id": "1",
-          "name": "Jason Marshall",
-        },
-        Object {
-          "id": "2",
-          "name": "Bec Lloyds",
-        },
-      ]
-    }
   />
 </div>
 `;

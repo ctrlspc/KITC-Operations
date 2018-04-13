@@ -34,6 +34,7 @@ exports[`should render form correctly with no project data 1`] = `
         className="select-group__select"
         id="project-manager"
         onChange={[Function]}
+        value="1"
       >
         <option
           key="1"
@@ -126,6 +127,7 @@ exports[`should render form correctly with project data passed in 1`] = `
         className="select-group__select"
         id="project-manager"
         onChange={[Function]}
+        value="1"
       >
         <option
           key="1"
@@ -223,6 +225,7 @@ exports[`should set an error for an invalid submission 1`] = `
         className="select-group__select"
         id="project-manager"
         onChange={[Function]}
+        value="1"
       >
         <option
           key="1"

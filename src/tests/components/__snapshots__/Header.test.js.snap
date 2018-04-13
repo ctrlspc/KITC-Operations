@@ -15,9 +15,10 @@ exports[`should render Header correctly 1`] = `
         replace={false}
         to="/dashboard"
       >
-        <h1>
-          Project Operations Tracker
-        </h1>
+        <img
+          alt="The KITC Logo"
+          src="/images/kitc-logo.png"
+        />
       </Link>
       <button
         className="button button--link"

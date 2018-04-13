@@ -2,7 +2,7 @@ import projectsReducer from '../../reducers/projects';
 import projects from '../fixtures/projects';
 import users from '../fixtures/users';
 
-test('should setup default expenses', () => {
+test('should setup default projects', () => {
   const state = projectsReducer(undefined, {type:'@@INIT'});
   expect(state).toEqual([]);
 });

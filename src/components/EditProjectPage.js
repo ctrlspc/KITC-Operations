@@ -16,9 +16,7 @@ export class EditProjectPage extends React.Component {
         <h1>Edit an existing Project</h1>
         <ProjectForm 
           onSubmit={this.onSubmit} 
-          projectManagers={[
-            {id:'1',name:'Jason Marshall'}, {id:'2', name:'Bec Lloyds'}
-          ]}
+          projectManagers={this.props.projectManagers}
           project={this.props.project}
         />
       </div>
@@ -26,11 +24,12 @@ export class EditProjectPage extends React.Component {
   };
 };
 
-const mapStateToProps = (state, props) => ({
-  project: state.projects.find((project) => project.id === props.match.params.id)
+export const mapStateToProps = (state, props) => ({
+  project: state.projects.find((project) => project.id === props.match.params.id),
+  projectManagers: state.projectManagers
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   updateProject: (id, project) => dispatch(updateProject(id, project))
 })
 
