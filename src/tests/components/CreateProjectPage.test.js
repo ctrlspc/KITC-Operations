@@ -17,7 +17,7 @@ test('should render the CreateProjectPage component correctly', () => {
 });
 
 test('should handle onSubmit', () => {
-  wrapper.find('ProjectForm').prop('onSubmit')(projects[0]);
+  wrapper.find('BasicProjectDetailsForm').prop('onSubmit')(projects[0]);
   expect(addProject).toHaveBeenLastCalledWith(projects[0]);
   expect(history.push).toHaveBeenLastCalledWith('/');
 })

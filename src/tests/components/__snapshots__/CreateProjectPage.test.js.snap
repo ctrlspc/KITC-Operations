@@ -7,7 +7,7 @@ exports[`should render the CreateProjectPage component correctly 1`] = `
   <h1>
     Create a new Project
   </h1>
-  <ProjectForm
+  <BasicProjectDetailsForm
     onSubmit={[Function]}
   />
 </div>

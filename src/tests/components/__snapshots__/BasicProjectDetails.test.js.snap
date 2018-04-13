@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render a NotFoundPageComponent 1`] = `
+<div>
+  <h3>
+    first test project
+  </h3>
+  <p>
+    testing some great stuff
+  </p>
+  <p>
+    <span>
+      Project Manager:
+    </span>
+     
+    Mr Test
+  </p>
+</div>
+`;

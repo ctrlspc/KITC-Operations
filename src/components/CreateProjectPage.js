@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import ProjectForm from './ProjectForm';
+import BasicProjectDetailsForm from './BasicProjectDetailsForm';
 import { startAddProject } from '../actions/projects';
 
 export class CreateProjectPage extends React.Component {
@@ -16,7 +16,7 @@ export class CreateProjectPage extends React.Component {
     return (
       <div className="content-container">
         <h1>Create a new Project</h1>
-        <ProjectForm 
+        <BasicProjectDetailsForm 
           onSubmit={this.onSubmit} 
           projectManagers={this.props.projectManagers}
         />

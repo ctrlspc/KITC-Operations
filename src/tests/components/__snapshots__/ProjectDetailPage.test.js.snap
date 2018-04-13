@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should default to be in non-edit mode and render ProjectDetailPage component correctly 1`] = `
+<div
+  className="content-container"
+>
+  <div
+    className="box-section"
+  >
+    <div
+      className="box-section__header"
+    >
+      <h1>
+        Basic Project Details
+      </h1>
+      <button
+        className="button"
+        onClick={[Function]}
+      >
+        Edit
+      </button>
+    </div>
+    <div
+      className="box-section__body"
+    >
+      <Component
+        description="testing some great stuff"
+        id="1"
+        onEditClick={[Function]}
+        projectManager={
+          Object {
+            "id": "1",
+            "name": "Mr Test",
+          }
+        }
+        projectType="int"
+        title="first test project"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`show edit detail views 1`] = `
+<div
+  className="content-container"
+>
+  <div
+    className="box-section"
+  >
+    <div
+      className="box-section__header"
+    >
+      <h1>
+        Basic Project Details
+      </h1>
+    </div>
+    <div
+      className="box-section__body"
+    >
+      <BasicProjectDetailsForm
+        onSubmit={[Function]}
+        project={
+          Object {
+            "description": "testing some great stuff",
+            "id": "1",
+            "projectManager": Object {
+              "id": "1",
+              "name": "Mr Test",
+            },
+            "projectType": "int",
+            "title": "first test project",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;

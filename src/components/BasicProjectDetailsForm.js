@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class ProjectForm extends React.Component {
+export default class BasicProjectDetailsForm extends React.Component {
  
   constructor(props) {
     super(props);

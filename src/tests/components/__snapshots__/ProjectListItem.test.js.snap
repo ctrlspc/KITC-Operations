@@ -4,7 +4,7 @@ exports[`should render the ProjectListItem component correctly 1`] = `
 <Link
   className="list-item"
   replace={false}
-  to="/edit/undefined"
+  to="/project/undefined"
 >
   <div>
     <h3
