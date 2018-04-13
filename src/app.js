@@ -6,9 +6,7 @@ import AppRouter, { history } from './routers/AppRouter';
 
 import configureStore from './store/configureStore';
 import { login, logout } from './actions/auth';
-import { setProjects } from './actions/projects';
-
-import projects from './tests/fixtures/projects';
+import { setProjects, startSetProjects } from './actions/projects';
 
 import LoadingPage from './components/LoadingPage';
 import { firebase } from './firebase/firebase';
@@ -43,12 +41,14 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 firebase.auth().onAuthStateChanged((user) => {
   if(user) {
     store.dispatch(login(user.uid));
-    renderApp();
-    if(history.location.pathname === '/') {
-      history.push('/dashboard');
-    }
-    store.dispatch(setProjects(projects));
-    store.dispatch(setProjectManagers(users));
+    store.dispatch(startSetProjects()).then(() => {
+      renderApp();
+      if(history.location.pathname === '/') {
+        history.push('/dashboard');
+      }
+      store.dispatch(setProjectManagers(users));
+    })
+    
   } else {
     renderApp();
     store.dispatch(logout());

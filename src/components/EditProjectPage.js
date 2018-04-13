@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ProjectForm from '../components/ProjectForm';
-import { updateProject } from '../actions/projects';
+import { startUpdateProject } from '../actions/projects';
 
 export class EditProjectPage extends React.Component {
 
@@ -30,7 +30,7 @@ export const mapStateToProps = (state, props) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  updateProject: (id, project) => dispatch(updateProject(id, project))
+  updateProject: (id, project) => dispatch(startUpdateProject(id, project))
 })
 
 

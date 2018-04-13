@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ProjectForm from './ProjectForm';
-import { addProject } from '../actions/projects';
+import { startAddProject } from '../actions/projects';
 
 export class CreateProjectPage extends React.Component {
 
@@ -26,7 +26,7 @@ export class CreateProjectPage extends React.Component {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  addProject: (project) => dispatch(addProject(project))
+  addProject: (project) => dispatch(startAddProject(project))
 });
 
 export const mapStateToProps = (state) => ({
