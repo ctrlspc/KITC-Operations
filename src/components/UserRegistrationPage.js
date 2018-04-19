@@ -12,19 +12,24 @@ export class UserRegistrationPage extends React.Component {
   
   render () {
     return (
-      <div>
-        <h3>New User Registration</h3> 
-        { _.isEmpty(this.props.profile) ? (
-          <button className="button" onClick={this.onRegisterButtonClick}>Register</button>
-        ) : (
-          _.isEmpty(this.props.roles) ? 
-          (
-            <p>Your registration is being reviewed by and administrator</p>
+      <div className="box-layout">
+        <div className="box-layout__box">
+          <h1 className="box-layout__title">KITC Operations Registration</h1>
+          { _.isEmpty(this.props.profile) ? (
+            <div>
+              <p>You can only use this app if you work for the KITC. If you do, then hit register below!</p>
+              <button className="button" onClick={this.onRegisterButtonClick}>Register</button>
+            </div>
           ) : (
-            <p>You're all set - you can continue over in the <a href="/dashboard">Dashboard</a></p>
+            _.isEmpty(this.props.roles) ? 
+            (
+              <p>Your registration is being reviewed by an administrator. You'll be notified by email when your account is activated.</p>
+            ) : (
+              <p>You're all set - you can continue over in the <a href="/dashboard">Dashboard</a></p>
+            )
           )
-        )
-      }
+          }
+        </div>
       </div>
     );
   };
