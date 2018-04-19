@@ -29,8 +29,10 @@ exports[`should default to be in non-edit mode and render ProjectDetailPage comp
         onEditClick={[Function]}
         projectManager={
           Object {
-            "id": "1",
-            "name": "Mr Test",
+            "displayName": "Mr Test",
+            "email": "MrTest@test.com",
+            "photoURL": "http://aurl.com/mrtest",
+            "uid": "1",
           }
         }
         projectType="int"
@@ -65,8 +67,10 @@ exports[`show edit detail views 1`] = `
             "description": "testing some great stuff",
             "id": "1",
             "projectManager": Object {
-              "id": "1",
-              "name": "Mr Test",
+              "displayName": "Mr Test",
+              "email": "MrTest@test.com",
+              "photoURL": "http://aurl.com/mrtest",
+              "uid": "1",
             },
             "projectType": "int",
             "title": "first test project",

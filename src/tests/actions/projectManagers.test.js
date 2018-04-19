@@ -2,24 +2,24 @@ import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 
 import { setProjectManagers, startSetProjectManagers } from '../../actions/projectManagers';
-import users from '../fixtures/users';
+import profiles from '../fixtures/profiles';
 import database from '../../firebase/firebase';
 
 const createMockStore = configureMockStore([thunk]);
 
 beforeEach((done) => {
   const projectManagersData = {};
-  users.forEach(({id, name}) => {
-    projectManagersData[id] = {name};
+  profiles.forEach(({uid, displayName, email, photoURL}) => {
+    projectManagersData[uid] = {displayName, email, photoURL};
   });
   database.ref('projectManagers').set(projectManagersData).then(() => done());
 });
 
 test('should create a SET_PROJECT_MANAGERS action object', () => {
-  const action = setProjectManagers(users);
+  const action = setProjectManagers(profiles);
   expect(action).toEqual({
     type:'SET_PROJECT_MANAGERS',
-    projectManagers: users
+    projectManagers: profiles
   });
 });
 
@@ -30,7 +30,7 @@ test('should get project managers from database and dispatch a SET_PROJECT_MANAG
       const action = store.getActions()[0];
       expect(action).toEqual({
         type: 'SET_PROJECT_MANAGERS',
-        projectManagers: users
+        projectManagers: profiles
       });
       done();
     });

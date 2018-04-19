@@ -26,7 +26,7 @@ export default class BasicProjectDetailsForm extends React.Component {
 
   onManagerChange = (e) => {
     const projectManager = this.props.projectManagers.find((projectManager) => {
-      return projectManager.id === e.target.value
+      return projectManager.uid === e.target.value
     });
     this.setState(() => ({projectManager}));
   };
@@ -77,10 +77,10 @@ export default class BasicProjectDetailsForm extends React.Component {
               className="select-group__select"
               id="project-manager"
               onChange={this.onManagerChange}
-              value={!!this.state.projectManager ? this.state.projectManager.id : ''}
+              value={!!this.state.projectManager ? this.state.projectManager.uid : ''}
             >
               {this.props.projectManagers && this.props.projectManagers.map((item) => {
-                return <option key={item.id} value={item.id}>{item.name}</option> 
+                return <option key={item.uid} value={item.uid}>{item.displayName}</option> 
               })}
             </select>
           </div>

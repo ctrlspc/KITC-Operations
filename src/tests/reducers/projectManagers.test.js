@@ -1,5 +1,5 @@
 import projectManagersReducer from '../../reducers/projectManagers';
-import users from '../fixtures/users';
+import profiles from '../fixtures/profiles';
 
 test('should setup default projectManagers', () => {
   const state = projectManagersReducer(undefined, {type:'@@INIT'});
@@ -7,8 +7,8 @@ test('should setup default projectManagers', () => {
 });
 
 test('should set project managers', () => {
-  const initialState = [users[2]];
-  const testState = [users[0], users[1]];
+  const initialState = [profiles[2]];
+  const testState = [profiles[0], profiles[1]];
   const action = {
     type:'SET_PROJECT_MANAGERS',
     projectManagers:testState

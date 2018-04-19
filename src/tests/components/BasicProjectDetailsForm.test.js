@@ -2,20 +2,20 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import BasicProjectDetailsForm from '../../components/BasicProjectDetailsForm';
 import projects from '../fixtures/projects';
-import users from '../fixtures/users';
+import profiles from '../fixtures/profiles';
 
 test('should render form correctly with no project data', () => {
-  const wrapper = shallow(<BasicProjectDetailsForm projectManagers={users} projectManagers={users}/>)
+  const wrapper = shallow(<BasicProjectDetailsForm projectManagers={profiles} projectManagers={profiles}/>)
   expect(wrapper).toMatchSnapshot();
 });
 
 test('should render form correctly with project data passed in', () => {
-  const wrapper = shallow(<BasicProjectDetailsForm project={projects[0]} projectManagers={users}/>)
+  const wrapper = shallow(<BasicProjectDetailsForm project={projects[0]} projectManagers={profiles}/>)
   expect(wrapper).toMatchSnapshot();
 });
 
 test('should set the project title', () => {
-  const wrapper = shallow(<BasicProjectDetailsForm projectManagers={users} />);
+  const wrapper = shallow(<BasicProjectDetailsForm projectManagers={profiles} />);
   const value = 'New Title';
 
   wrapper.find('input').at(0).simulate('change', {
@@ -26,7 +26,7 @@ test('should set the project title', () => {
 });
 
 test('should set the project description', () => {
-  const wrapper = shallow(<BasicProjectDetailsForm projectManagers={users}/>);
+  const wrapper = shallow(<BasicProjectDetailsForm projectManagers={profiles}/>);
   const value = 'New Description';
 
   wrapper.find('textarea').at(0).simulate('change', {
@@ -37,18 +37,18 @@ test('should set the project description', () => {
 });
 
 test('should set the project manager', () => {
-  const wrapper = shallow(<BasicProjectDetailsForm projectManagers={users}/>);
+  const wrapper = shallow(<BasicProjectDetailsForm projectManagers={profiles}/>);
   const value = '1';
 
   wrapper.find('#project-manager').at(0).simulate('change', {
     target: {value}
   });
 
-  expect(wrapper.state('projectManager')).toBe(users[0]);
+  expect(wrapper.state('projectManager')).toBe(profiles[0]);
 });
 
 test('should set the project type', () => {
-  const wrapper = shallow(<BasicProjectDetailsForm projectManagers={users}/>);
+  const wrapper = shallow(<BasicProjectDetailsForm projectManagers={profiles}/>);
   const value = 'int';
 
   wrapper.find('#project-type').at(0).simulate('change', {
@@ -65,7 +65,7 @@ test('should call onSubmit for a valid submission', () => {
     <BasicProjectDetailsForm 
       project={projects[0]} 
       onSubmit={onSubmitSpy}
-      projectManagers={users}
+      projectManagers={profiles}
     />);
   wrapper.find('form').simulate('submit',{preventDefault:preventDefaultSpy});
   expect(preventDefaultSpy).toHaveBeenCalled();
@@ -73,13 +73,13 @@ test('should call onSubmit for a valid submission', () => {
   expect(onSubmitSpy).toHaveBeenLastCalledWith({
     title: projects[0].title,
     description: projects[0].description,
-    projectManager: users[0],
+    projectManager: profiles[0],
     projectType: projects[0].projectType
   });
 });
 
 test('should set an error for an invalid submission', () => {
-  const wrapper = shallow(<BasicProjectDetailsForm projectManagers={users}/>);
+  const wrapper = shallow(<BasicProjectDetailsForm projectManagers={profiles}/>);
   wrapper.find('form').simulate('submit',{preventDefault:() => {}});
   expect(wrapper.state('error').length).toBeGreaterThan(0);
   expect(wrapper).toMatchSnapshot();

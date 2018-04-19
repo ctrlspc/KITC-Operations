@@ -4,8 +4,10 @@ export default [
     title: 'first test project',
     description: 'testing some great stuff',
     projectManager: {
-      id:'1',
-      name:'Mr Test'
+      uid:'1',
+      email:'MrTest@test.com',
+      displayName:'Mr Test',
+      photoURL:'http://aurl.com/mrtest'
     } ,
     projectType: 'int'
   },
@@ -14,8 +16,10 @@ export default [
     title: 'second test project',
     description: 'testing some more great stuff',
     projectManager: {
-      id:'2',
-      name:'Mr Testy'
+      uid:'2',
+      email:'MrTesty@test.com',
+      displayName:'Mr Testy',
+      photoURL:'http://aurl.com/mrtesty'
     } ,
     projectType: 'int'
   },
@@ -24,8 +28,10 @@ export default [
     title: 'third test project',
     description: 'testing some really great stuff',
     projectManager: {
-      id:'3',
-      name:'Mr Grumpy'
+      uid:'3',
+      email:'MrGrumpy@test.com',
+      displayName:'Mr Grumpy',
+      photoURL:'http://aurl.com/mrgrumpy'
     } ,
     projectType: 'int'
   }

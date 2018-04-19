@@ -14,7 +14,7 @@ export const startSetProjectManagers = () => {
       const projectManagers = [];
       snapshot.forEach(snapshotChild => {
         projectManagers.push({
-          id:snapshotChild.key,
+          uid:snapshotChild.key,
           ...snapshotChild.val()
         });
       });

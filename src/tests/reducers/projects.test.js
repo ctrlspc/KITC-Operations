@@ -1,6 +1,6 @@
 import projectsReducer from '../../reducers/projects';
 import projects from '../fixtures/projects';
-import users from '../fixtures/users';
+import profiles from '../fixtures/profiles';
 
 test('should setup default projects', () => {
   const state = projectsReducer(undefined, {type:'@@INIT'});
@@ -12,7 +12,7 @@ test('should add a project', () => {
     id:'123',
     title: 'an action test',
     description: 'and action description',
-    projectManager: users[0],
+    projectManager: profiles[0],
     projectType:'ext'
   }
   
@@ -29,7 +29,7 @@ test('should update a project', () => {
   const updates = {
     title: 'a new title',
     description: 'a new title',
-    projectManager: users[1],
+    projectManager: profiles[1],
     projectType: 'int'
   };
 
