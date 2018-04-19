@@ -17,7 +17,7 @@ export class UserRegistrationPage extends React.Component {
           <h1 className="box-layout__title">KITC Operations Registration</h1>
           { _.isEmpty(this.props.profile) ? (
             <div>
-              <p>You can only use this app if you work for the KITC. If you do, then hit register below!</p>
+              <p>You can only use this app if you work for the KITC. If you do, great, hit register below!</p>
               <button className="button" onClick={this.onRegisterButtonClick}>Register</button>
             </div>
           ) : (
