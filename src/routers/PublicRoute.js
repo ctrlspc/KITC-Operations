@@ -4,7 +4,7 @@ import { Route, Redirect } from 'react-router-dom';
 import _ from "lodash";
 
 export const PublicRoute = ({
-  isAuthenticated,
+  iam,
   component: Component,
   ...rest
 }) => (
