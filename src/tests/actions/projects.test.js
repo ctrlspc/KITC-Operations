@@ -1,6 +1,11 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { setProjects, startSetProjects, addProject, updateProject, startAddProject, startUpdateProject } from '../../actions/projects';
+import { setProjects, 
+  startSetProjects, 
+  addProject, 
+  updateProject, 
+  startAddProject, 
+  startUpdateProject } from '../../actions/projects';
 import projects from '../fixtures/projects';
 import users from '../fixtures/users';
 import database from '../../firebase/firebase';
@@ -46,7 +51,6 @@ test('should create a ADD_PROJECT action object', () => {
 
 test('should add project to database and store', (done) => {
   const store = createMockStore();
-  
   const projectData = {
     title:'add test',
     description:'a project on test',
@@ -55,7 +59,6 @@ test('should add project to database and store', (done) => {
   };
 
   store.dispatch(startAddProject(projectData)).then(() => {
-
     const actions = store.getActions();
     expect(actions[0]).toEqual({
       type:'ADD_PROJECT',

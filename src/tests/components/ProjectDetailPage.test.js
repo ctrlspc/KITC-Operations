@@ -19,6 +19,14 @@ test('show edit detail views', () => {
   expect(wrapper).toMatchSnapshot();
 });
 
+test('should toggle to edit mode when the edit button is clicked', () => {
+  const wrapper = shallow(
+    <ProjectDetailPage project={projects[0]} editBasicProjectDetails={false}/>
+  );
+  wrapper.find('button').simulate('click');
+  expect(wrapper).toMatchSnapshot();
+});
+
 test('should handle onSubmit', () => {
 
   const updateProject = jest.fn(() => Promise.resolve({}));

@@ -50,6 +50,8 @@ export const startSetRoles = (user) => {
     return database.ref(`roles/${user.uid}`).once('value').then((snapshot) => {
       if(snapshot.val()) {
         dispatch(setRoles(Object.keys(snapshot.val())));
+      } else {
+        dispatch(setRoles([]));
       }
     });
   }
@@ -58,10 +60,7 @@ export const startSetRoles = (user) => {
 
 export const startRegisterUser = (user) => {
   return (dispatch) => {
-
-    console.log('Starting User Registration', user);
-    const updatedUser = {...user,startedRegistration:true }
-    return database.ref(`profiles/${user.uid}`).set(updatedUser).then (() => {
+    return database.ref(`profiles/${user.uid}`).set(user).then (() => {
       return dispatch(startSetProfile(user)).then(() => {
         return dispatch(startSetRoles(user));
       });

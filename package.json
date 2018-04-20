@@ -10,6 +10,7 @@
     "dev-server": "webpack-dev-server",
     "test": "jest",
     "test-watch": "cross-env NODE_ENV=test jest --config=jest.config.json --watch",
+    "test-coverage": "cross-env NODE_ENV=test jest --config=jest.config.json --coverage",
     "heroku-postbuild": "yarn run build:prod"
   },
   "dependencies": {

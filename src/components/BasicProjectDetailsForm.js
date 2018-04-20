@@ -77,7 +77,7 @@ export default class BasicProjectDetailsForm extends React.Component {
               className="select-group__select"
               id="project-manager"
               onChange={this.onManagerChange}
-              value={!!this.state.projectManager ? this.state.projectManager.uid : ''}
+              value={this.state.projectManager.uid}
             >
               {this.props.projectManagers && this.props.projectManagers.map((item) => {
                 return <option key={item.uid} value={item.uid}>{item.displayName}</option> 

@@ -29,15 +29,8 @@ export const addProject = (project) => ({
   project
 });
 
-export const startAddProject = (projectData = {}) => {
-  return (dispatch) => {
-    const {
-      title = '',
-      description = '',
-      projectManager = {id:1, name:'unknown'},
-      projectType = 'int'
-    } = projectData;
-
+export const startAddProject = ({title, description, projectManager, projectType}) => {
+ return (dispatch) => {
     const project = {title, description, projectManager, projectType};
 
     return database.ref(`projects`)

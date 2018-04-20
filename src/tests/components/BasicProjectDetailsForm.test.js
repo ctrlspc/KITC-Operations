@@ -5,7 +5,7 @@ import projects from '../fixtures/projects';
 import profiles from '../fixtures/profiles';
 
 test('should render form correctly with no project data', () => {
-  const wrapper = shallow(<BasicProjectDetailsForm projectManagers={profiles} projectManagers={profiles}/>)
+  const wrapper = shallow(<BasicProjectDetailsForm projectManagers={profiles}/>)
   expect(wrapper).toMatchSnapshot();
 });
 

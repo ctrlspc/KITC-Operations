@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render the ProjectList component correctly 1`] = `
+exports[`should render the ProjectList component correctly with no projects 1`] = `
 <div>
   <div
     className="list-header"
@@ -27,6 +27,79 @@ exports[`should render the ProjectList component correctly 1`] = `
     <p>
       No Projects!
     </p>
+  </div>
+</div>
+`;
+
+exports[`should render the ProjectList component correctly with projects 1`] = `
+<div>
+  <div
+    className="list-header"
+  >
+    <div
+      className="show-for-mobile"
+    >
+      Projects
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Project
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Type
+    </div>
+  </div>
+  <div
+    className="list-body"
+  >
+    <Component
+      description="testing some great stuff"
+      id="1"
+      key="1"
+      projectManager={
+        Object {
+          "displayName": "Mr Test",
+          "email": "MrTest@test.com",
+          "photoURL": "http://aurl.com/mrtest",
+          "uid": "1",
+        }
+      }
+      projectType="int"
+      title="first test project"
+    />
+    <Component
+      description="testing some more great stuff"
+      id="2"
+      key="2"
+      projectManager={
+        Object {
+          "displayName": "Mr Testy",
+          "email": "MrTesty@test.com",
+          "photoURL": "http://aurl.com/mrtesty",
+          "uid": "2",
+        }
+      }
+      projectType="int"
+      title="second test project"
+    />
+    <Component
+      description="testing some really great stuff"
+      id="3"
+      key="3"
+      projectManager={
+        Object {
+          "displayName": "Mr Grumpy",
+          "email": "MrGrumpy@test.com",
+          "photoURL": "http://aurl.com/mrgrumpy",
+          "uid": "3",
+        }
+      }
+      projectType="int"
+      title="third test project"
+    />
   </div>
 </div>
 `;

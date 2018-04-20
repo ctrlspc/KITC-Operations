@@ -35,15 +35,11 @@ export class UserRegistrationPage extends React.Component {
   };
 }; 
 
-export const mapStateToProps = (state) => {
-  console.log(state.iam);
-  
-  return {
+export const mapStateToProps = (state) => ({
   user: state.iam.identity,
   profile: state.iam.profile,
   roles: state.iam.roles
-  }
-};
+});
 
 export const mapDispatchToProps = (dispatch) => ({
   onRegister: (user) => dispatch(startRegisterUser(user))

@@ -12,17 +12,14 @@ exports[`should render the ProjectListItem component correctly for a user who ha
     >
       KITC Operations Registration
     </h1>
-    <div>
-      <p>
-        You can only use this app if you work for the KITC. If you do, then hit register below!
-      </p>
-      <button
-        className="button"
-        onClick={[Function]}
+    <p>
+      You're all set - you can continue over in the 
+      <a
+        href="/dashboard"
       >
-        Register
-      </button>
-    </div>
+        Dashboard
+      </a>
+    </p>
   </div>
 </div>
 `;
@@ -39,17 +36,9 @@ exports[`should render the ProjectListItem component correctly for a user who ha
     >
       KITC Operations Registration
     </h1>
-    <div>
-      <p>
-        You can only use this app if you work for the KITC. If you do, then hit register below!
-      </p>
-      <button
-        className="button"
-        onClick={[Function]}
-      >
-        Register
-      </button>
-    </div>
+    <p>
+      Your registration is being reviewed by an administrator. You'll be notified by email when your account is activated.
+    </p>
   </div>
 </div>
 `;
@@ -68,7 +57,7 @@ exports[`should render the ProjectListItem component correctly for a user who ha
     </h1>
     <div>
       <p>
-        You can only use this app if you work for the KITC. If you do, then hit register below!
+        You can only use this app if you work for the KITC. If you do, great, hit register below!
       </p>
       <button
         className="button"

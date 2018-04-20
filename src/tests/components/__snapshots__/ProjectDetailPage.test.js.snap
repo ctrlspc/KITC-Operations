@@ -43,6 +43,45 @@ exports[`should default to be in non-edit mode and render ProjectDetailPage comp
 </div>
 `;
 
+exports[`should toggle to edit mode when the edit button is clicked 1`] = `
+<div
+  className="content-container"
+>
+  <div
+    className="box-section"
+  >
+    <div
+      className="box-section__header"
+    >
+      <h1>
+        Basic Project Details
+      </h1>
+    </div>
+    <div
+      className="box-section__body"
+    >
+      <BasicProjectDetailsForm
+        onSubmit={[Function]}
+        project={
+          Object {
+            "description": "testing some great stuff",
+            "id": "1",
+            "projectManager": Object {
+              "displayName": "Mr Test",
+              "email": "MrTest@test.com",
+              "photoURL": "http://aurl.com/mrtest",
+              "uid": "1",
+            },
+            "projectType": "int",
+            "title": "first test project",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`show edit detail views 1`] = `
 <div
   className="content-container"
