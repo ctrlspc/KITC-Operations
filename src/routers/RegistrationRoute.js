@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
+
 import Header from '../components/Header';
+import { isAuthenticated, isAuthenticatedUser } from '../reducers';
 
 export const PrivateRoute = ({
   isAuthenticated,
-  isRegistered,
+  isAuthenticatedUser,
   redirect = '/',
   component: Component,
   ...rest
@@ -13,7 +15,7 @@ export const PrivateRoute = ({
   <Route 
     {...rest} 
     component={(props) => {
-      if(!isAuthenticated || isRegistered) {
+      if(!isAuthenticated || isAuthenticatedUser) {
         return <Redirect to={redirect} />
       } else {
         return (
@@ -29,8 +31,8 @@ export const PrivateRoute = ({
 
 const mapStateToProps = (state) => (
   {
-    isAuthenticated: state.iam.isAuthenticated,
-    isRegistered: state.iam.isRegistered
+    isAuthenticated: isAuthenticated(state),
+    isAuthenticatedUser: isAuthenticatedUser(state)
   } 
 );
 

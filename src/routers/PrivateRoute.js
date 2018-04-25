@@ -4,8 +4,11 @@ import { Route, Redirect } from 'react-router-dom';
 import Header from '../components/Header';
 import _ from "lodash";
 
+import { isAuthenticated, isAuthenticatedUser } from '../reducers';
+
 export const PrivateRoute = ({
-  iam,
+  isAuthenticatedUser,
+  isAuthenticated,
   loginRedirect = '/',
   registerRedirect = '/register',
   component: Component,
@@ -14,14 +17,14 @@ export const PrivateRoute = ({
   <Route 
     {...rest} 
     component={(props) => {
-      if(!_.isEmpty(iam.identity) && !_.isEmpty(iam.roles)) {
+      if(isAuthenticatedUser) {
         return (
           <div>
             <Header />
             <Component {...props} />
           </div> 
         );
-      } else if (_.isEmpty(iam.identity)) {
+      } else if (!isAuthenticated) {
         return <Redirect to={loginRedirect} />
       } else {
         return <Redirect to={registerRedirect} />
@@ -32,7 +35,8 @@ export const PrivateRoute = ({
 
 const mapStateToProps = (state) => (
   {
-    iam: state.iam
+    isAuthenticatedUser: isAuthenticatedUser(state),
+    isAuthenticated: isAuthenticated(state)
   }
 );
 

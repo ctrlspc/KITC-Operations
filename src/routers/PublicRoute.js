@@ -1,16 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
-import _ from "lodash";
+
+import { isAuthenticated } from '../reducers';
 
 export const PublicRoute = ({
-  iam,
+  isAuthenticated,
   component: Component,
   ...rest
 }) => (
   <Route 
     {...rest} 
-    component={(props) => (_.isEmpty(iam.identity) ? ( 
+    component={(props) => (!isAuthenticated ? ( 
       <Component {...props} />
     ) : ( 
       <Redirect to="/dashboard" />
@@ -19,8 +20,8 @@ export const PublicRoute = ({
   />
 );
 
-const mapStateToProps = (state) => ({
-  iam: state.iam
+export const mapStateToProps = (state) => ({
+  isAuthenticated: isAuthenticated(state),
 });
 
 export default connect(mapStateToProps)(PublicRoute);
