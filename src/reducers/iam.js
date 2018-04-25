@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 export default (state = {}, action ) => {
   switch (action.type) {
     case 'LOGIN':
@@ -30,3 +32,15 @@ export default (state = {}, action ) => {
       return state;
   }
 };
+
+export const isAuthenticated = (state) => {
+  return !_.isEmpty(state.identity);
+};
+
+export const isAuthenticatedUser = (state) => {
+  return isAuthenticated && _.includes(state.roles, 'user');
+}
+
+export const hasUserProfile = (state) => {
+  return isAuthenticated && !_.isEmpty(state.profile);
+}
