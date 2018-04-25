@@ -1,13 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Header } from '../../components/Header';
+import { Header , mapDispatchToProps } from '../../components/Header';
+import { startLogout } from '../../actions/iam';
 
+jest.mock('../../actions/iam');
 
-let startLogout, wrapper;
+let startLogoutMock, wrapper;
 
 beforeEach(() => {
-  startLogout = jest.fn();
-  wrapper = shallow(<Header startLogout={startLogout}/>);
+  startLogoutMock = jest.fn();
+  wrapper = shallow(<Header startLogout={startLogoutMock}/>);
 });
 
 test('should render Header correctly', () => {
@@ -16,5 +18,14 @@ test('should render Header correctly', () => {
 
 test('should call startLogout on button click', () => {
   wrapper.find('button').simulate('click');
-  expect(startLogout).toHaveBeenCalled();
+  expect(startLogoutMock).toHaveBeenCalled();
+});
+
+test('should correctly map dispatch to props', () => {
+  const dispatch = jest.fn();
+  const props = mapDispatchToProps(dispatch);
+  startLogout.mockReturnValue({test:true});
+  props.startLogout(1, {uid:'123'});
+  expect(startLogout.mock.calls).toHaveLength(1);
+  expect(dispatch.mock.calls[0][0]).toEqual({test:true});
 });

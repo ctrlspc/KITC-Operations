@@ -1,15 +1,18 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { CreateProjectPage, mapStateToProps } from '../../components/CreateProjectPage';
+import { CreateProjectPage, mapStateToProps, mapDispatchToProps } from '../../components/CreateProjectPage';
 import projects from '../fixtures/projects';
 import users from '../fixtures/users';
+import { startAddProject } from '../../actions/projects';
 
-let addProject, history, wrapper;
+jest.mock('../../actions/projects');
+
+let addProjectMock, history, wrapper;
 
 beforeEach(() => {
-  addProject = jest.fn();
+  addProjectMock = jest.fn();
   history = { push: jest.fn() };
-  wrapper = shallow(<CreateProjectPage addProject={addProject} history={history}/>);
+  wrapper = shallow(<CreateProjectPage addProject={addProjectMock} history={history}/>);
 });
 
 test('should render the CreateProjectPage component correctly', () => {
@@ -18,7 +21,7 @@ test('should render the CreateProjectPage component correctly', () => {
 
 test('should handle onSubmit', () => {
   wrapper.find('BasicProjectDetailsForm').prop('onSubmit')(projects[0]);
-  expect(addProject).toHaveBeenLastCalledWith(projects[0]);
+  expect(addProjectMock).toHaveBeenLastCalledWith(projects[0]);
   expect(history.push).toHaveBeenLastCalledWith('/');
 })
 
@@ -28,4 +31,14 @@ test('should map state to props correctly', () => {
   };
   const map = mapStateToProps(state);
   expect(map.projectManagers).toEqual(users);
+});
+
+test('should correctly map dispatch to props', () => {
+  const dispatch = jest.fn();
+  const props = mapDispatchToProps(dispatch);
+  startAddProject.mockReturnValue({test:true});
+  const testProject = {uid:'123'}
+  props.addProject(testProject);
+  expect(startAddProject.mock.calls[0][0]).toEqual(testProject);
+  expect(dispatch.mock.calls[0][0]).toEqual({test:true});
 });

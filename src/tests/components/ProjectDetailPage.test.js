@@ -1,9 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ProjectDetailPage, mapStateToProps } from '../../components/ProjectDetailPage';
+import { ProjectDetailPage, mapStateToProps, mapDispatchToProps } from '../../components/ProjectDetailPage';
 
 import projects from '../fixtures/projects';
 import users from '../fixtures/users';
+
+import { startUpdateProject } from '../../actions/projects';
+jest.mock('../../actions/projects');
 
 test('should default to be in non-edit mode and render ProjectDetailPage component correctly', () => {
   const wrapper = shallow(
@@ -57,4 +60,14 @@ test('should map state to props correctly', () => {
   expect(map.project).toEqual(projects[0]);
   expect(map.projectManagers).toEqual(users);
 
+});
+
+test('should correctly map dispatch to props', () => {
+  const dispatch = jest.fn();
+  const props = mapDispatchToProps(dispatch);
+  startUpdateProject.mockReturnValue({test:true});
+  props.updateProject(1, {uid:'123'});
+  expect(startUpdateProject.mock.calls[0][0]).toEqual(1);
+  expect(startUpdateProject.mock.calls[0][1]).toEqual({uid:'123'});
+  expect(dispatch.mock.calls[0][0]).toEqual({test:true});
 });

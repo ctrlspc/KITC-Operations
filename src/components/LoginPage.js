@@ -13,7 +13,7 @@ export const LoginPage = ({ startLogin }) => (
   </div>
 );
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   startLogin: () => dispatch(startLogin())
 });
 

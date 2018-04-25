@@ -25,7 +25,7 @@ export class CreateProjectPage extends React.Component {
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   addProject: (project) => dispatch(startAddProject(project))
 });
 

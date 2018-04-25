@@ -1,6 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { UserRegistrationPage, mapStateToProps, mapDispatchToProps } from '../../components/UserRegistrationPage';
+import { startRegisterUser } from '../../actions/iam';
+jest.mock('../../actions/iam');
 
 test('should render the ProjectListItem component correctly for a user who has not registered', () => {
   const user = {uid:'123'};
@@ -55,4 +57,18 @@ test('should map State to Props correctly', () => {
   expect(props.profile).toEqual(state.iam.profile);
   expect(props.roles).toEqual(state.iam.roles);
 
+});
+
+test('should correctly map dispatch to props', () => {
+  const dispatch = jest.fn();
+  
+  startRegisterUser.mockReturnValue({test:true});
+  
+  const props = mapDispatchToProps(dispatch);
+
+  props.onRegister({uid:'123'});
+
+  expect(startRegisterUser.mock.calls[0][0]).toEqual({uid:'123'});
+  expect(dispatch.mock.calls[0][0]).toEqual({test:true});
+  
 });
