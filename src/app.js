@@ -40,16 +40,7 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
   if(user) {
-    // a user has logged in
-    //are they registered (is there a user for their uid in the database?)
-      //yes - do they have a role that allows them to access the app?
-        //yes - log them in, get projects and pm's etc.
-
-        //no - send them to a not auth page - 'your account has not yet been activated'
-
-      //no - send them to the registration form
-    store.dispatch(login(user));
-    
+    store.dispatch(login(user)); 
     store.dispatch(startSetProfile(user)).then(() => {
       return store.dispatch(startSetRoles(user));
     })
