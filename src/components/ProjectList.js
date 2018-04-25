@@ -22,7 +22,7 @@ export const ProjectList = (props) => (
   </div>
 )
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   projects: state.projects
 });
 
