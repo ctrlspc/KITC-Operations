@@ -2,7 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { UserRegistrationPage, mapStateToProps, mapDispatchToProps } from '../../components/UserRegistrationPage';
 import { startRegisterUser } from '../../actions/iam';
+import { isAuthenticatedUser, hasUserProfile } from  '../../reducers';
+
 jest.mock('../../actions/iam');
+jest.mock('../../reducers');
 
 test('should render the ProjectListItem component correctly for a user who has not registered', () => {
   const user = {uid:'123'};
@@ -51,11 +54,16 @@ test('should map State to Props correctly', () => {
     }
   };
 
+  isAuthenticatedUser.mockReturnValue(true);
+  hasUserProfile.mockReturnValue(true);
+
   const props = mapStateToProps(state);
 
   expect(props.user).toEqual(state.iam.identity);
-  expect(props.profile).toEqual(state.iam.profile);
-  expect(props.roles).toEqual(state.iam.roles);
+  expect(props.isAuthenticatedUser).toBe(true);
+  expect(props.hasUserProfile).toBe(true);
+  expect(isAuthenticatedUser).toHaveBeenCalledWith(state);
+  expect(hasUserProfile).toHaveBeenCalledWith(state);
 
 });
 

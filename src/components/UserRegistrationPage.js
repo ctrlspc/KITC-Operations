@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { startRegisterUser } from '../actions/iam';
-import { isAuthenticated, hasUserProfile } from '../reducers';
+import { isAuthenticatedUser, hasUserProfile } from '../reducers';
 
 export class UserRegistrationPage extends React.Component {
 
