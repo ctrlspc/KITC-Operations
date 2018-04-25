@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
-import Header from '../components/Header';
-import _ from "lodash";
 
+import Header from '../components/Header';
 import { isAuthenticated, isAuthenticatedUser } from '../reducers';
 
 export const PrivateRoute = ({
@@ -33,7 +32,7 @@ export const PrivateRoute = ({
   />
 );
 
-const mapStateToProps = (state) => (
+export const mapStateToProps = (state) => (
   {
     isAuthenticatedUser: isAuthenticatedUser(state),
     isAuthenticated: isAuthenticated(state)

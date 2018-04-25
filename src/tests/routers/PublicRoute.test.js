@@ -2,7 +2,6 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { PublicRoute, mapStateToProps } from '../../routers/PublicRoute';
 import { StaticRouter } from 'react-router'
-import Route from 'react-router-dom/Route';
 import { isAuthenticated } from '../../reducers';
 
 jest.mock('../../reducers');

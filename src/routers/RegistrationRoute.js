@@ -5,7 +5,7 @@ import { Route, Redirect } from 'react-router-dom';
 import Header from '../components/Header';
 import { isAuthenticated, isAuthenticatedUser } from '../reducers';
 
-export const PrivateRoute = ({
+export const RegistrationRoute = ({
   isAuthenticated,
   isAuthenticatedUser,
   redirect = '/',
@@ -29,11 +29,11 @@ export const PrivateRoute = ({
   />
 );
 
-const mapStateToProps = (state) => (
+export const mapStateToProps = (state) => (
   {
     isAuthenticated: isAuthenticated(state),
     isAuthenticatedUser: isAuthenticatedUser(state)
   } 
 );
 
-export default connect(mapStateToProps)(PrivateRoute);
+export default connect(mapStateToProps)(RegistrationRoute);
