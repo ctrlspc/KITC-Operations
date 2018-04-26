@@ -1,5 +1,5 @@
 import React from 'react';
-
+import _ from 'lodash';
 export default class BasicProjectDetailsForm extends React.Component {
  
   constructor(props) {
@@ -8,10 +8,18 @@ export default class BasicProjectDetailsForm extends React.Component {
     this.state = {
       title: project ? project.title : '',
       description: project ? project.description : '',
-      projectManager: project ? project.projectManager  : this.props.projectManagers[0] ,
+      projectManager: project ? project.projectManager.uid  : '' ,
       projectType: project ? project.projectType : 'ext',
       error:''
     };
+  };
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.projectManagers !== this.props.projectManagers) {
+      if (this.state.projectManager === '' && !_.isEmpty(this.props.projectManagers[0])) {
+        this.setState(() => ({projectManager:this.props.projectManagers[0].uid}));
+      }
+    }
   };
 
   onTitleChange = (e) => {
@@ -25,9 +33,7 @@ export default class BasicProjectDetailsForm extends React.Component {
   };
 
   onManagerChange = (e) => {
-    const projectManager = this.props.projectManagers.find((projectManager) => {
-      return projectManager.uid === e.target.value
-    });
+    const projectManager = e.target.value;
     this.setState(() => ({projectManager}));
   };
 
@@ -39,15 +45,19 @@ export default class BasicProjectDetailsForm extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
 
+    const projectManager = this.props.projectManagers.find((projectManager) => {
+      return projectManager.uid === this.state.projectManager
+    });
     if(!this.state.title || !this.state.description || !this.state.projectManager) {
       this.setState(() => ({error:'Please provide a title and project description'}));
     } else {
+
       this.setState(() => ({error:''}));
       this.props.onSubmit({
         title: this.state.title,
         description: this.state.description,
-        projectManager: this.state.projectManager ,
-        projectType: this.state.projectType
+        projectType: this.state.projectType,
+        projectManager
       });
     }
   };
@@ -77,7 +87,7 @@ export default class BasicProjectDetailsForm extends React.Component {
               className="select-group__select"
               id="project-manager"
               onChange={this.onManagerChange}
-              value={this.state.projectManager.uid}
+              value={this.state.projectManager}
             >
               {this.props.projectManagers && this.props.projectManagers.map((item) => {
                 return <option key={item.uid} value={item.uid}>{item.displayName}</option> 

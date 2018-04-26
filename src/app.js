@@ -14,7 +14,6 @@ import { firebase } from './firebase/firebase';
 import 'normalize.css/normalize.css'; //reset browser css so that we are starting from same place
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css'
-import { setProjectManagers, startSetProjectManagers } from './actions/projectManagers';
 import users from './tests/fixtures/users';
 
 
@@ -46,9 +45,6 @@ firebase.auth().onAuthStateChanged((user) => {
     })
     .then(() => {
       return store.dispatch(startSetProjects());
-    })
-    .then(() => {
-      return store.dispatch(startSetProjectManagers());
     })
     .then(() => {
       renderApp();

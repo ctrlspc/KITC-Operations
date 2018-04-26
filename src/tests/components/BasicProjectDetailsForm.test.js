@@ -4,6 +4,7 @@ import BasicProjectDetailsForm from '../../components/BasicProjectDetailsForm';
 import projects from '../fixtures/projects';
 import profiles from '../fixtures/profiles';
 
+
 test('should render form correctly with no project data', () => {
   const wrapper = shallow(<BasicProjectDetailsForm projectManagers={profiles}/>)
   expect(wrapper).toMatchSnapshot();
@@ -38,13 +39,13 @@ test('should set the project description', () => {
 
 test('should set the project manager', () => {
   const wrapper = shallow(<BasicProjectDetailsForm projectManagers={profiles}/>);
-  const value = '1';
+  const value = profiles[0].uid;
 
   wrapper.find('#project-manager').at(0).simulate('change', {
     target: {value}
   });
 
-  expect(wrapper.state('projectManager')).toBe(profiles[0]);
+  expect(wrapper.state('projectManager')).toBe(profiles[0].uid);
 });
 
 test('should set the project type', () => {

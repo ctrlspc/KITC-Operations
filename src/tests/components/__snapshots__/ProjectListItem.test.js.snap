@@ -12,12 +12,7 @@ exports[`should render the ProjectListItem component correctly 1`] = `
     />
     <p
       className="list-item__subtitle"
-    >
-      test
-    </p>
+    />
   </div>
-  <p
-    className="list-item__data"
-  />
 </Link>
 `;

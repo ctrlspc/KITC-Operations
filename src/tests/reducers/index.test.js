@@ -1,5 +1,5 @@
 import * as fromIamReducer from "../../reducers/iam";
-import reducer, { isAuthenticated, isAuthenticatedUser, hasUserProfile } from '../../reducers';
+import reducer, { isAuthenticated, isAuthenticatedUser, hasUserProfile, getActiveUsers } from '../../reducers';
 import { combineReducers } from 'redux';
 
 jest.mock('../../reducers/iam');
@@ -9,7 +9,7 @@ test('should combine reducers correctly', () => {
   expect(combineReducers).toHaveBeenCalledWith(expect.objectContaining({
     iam: expect.any(Function),
     projects: expect.any(Function),
-    projectManagers:expect.any(Function)
+    users:expect.any(Function)
   }));
 });
 
@@ -33,4 +33,10 @@ test('should wire up hasUserProfile', () => {
   expect(hasUserProfile({iam:state})).toBeTruthy();
   expect(fromIamReducer.hasUserProfile).toHaveBeenCalledWith(state);
   
+});
+
+test('should return users', () => {
+  const users = [{uid:123}];
+  const state = {users};
+  expect(getActiveUsers(state)).toEqual(users);
 });

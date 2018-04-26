@@ -6,25 +6,33 @@ import projects from '../fixtures/projects';
 import users from '../fixtures/users';
 
 import { startUpdateProject } from '../../actions/projects';
+import { getActiveUsers } from '../../reducers';
 jest.mock('../../actions/projects');
+jest.mock('../../reducers');
+
+let getUsers;
+
+beforeEach(() => {
+  getUsers = jest.fn();
+});
 
 test('should default to be in non-edit mode and render ProjectDetailPage component correctly', () => {
   const wrapper = shallow(
-    <ProjectDetailPage project={projects[0]}/>
+    <ProjectDetailPage project={projects[0]} getUsers={getUsers}/>
   );
   expect(wrapper).toMatchSnapshot();
 });
 
 test('show edit detail views', () => {
   const wrapper = shallow(
-    <ProjectDetailPage project={projects[0]} editBasicProjectDetails={true}/>
+    <ProjectDetailPage project={projects[0]} editBasicProjectDetails={true} getUsers={getUsers}/>
   );
   expect(wrapper).toMatchSnapshot();
 });
 
 test('should toggle to edit mode when the edit button is clicked', () => {
   const wrapper = shallow(
-    <ProjectDetailPage project={projects[0]} editBasicProjectDetails={false}/>
+    <ProjectDetailPage project={projects[0]} editBasicProjectDetails={false} getUsers={getUsers}/>
   );
   wrapper.find('button').simulate('click');
   expect(wrapper).toMatchSnapshot();
@@ -41,6 +49,7 @@ test('should handle onSubmit', () => {
       history={history}
       project={project}
       editBasicProjectDetails={true}
+      getUsers={getUsers}
     />
   );
   wrapper.find('BasicProjectDetailsForm').prop('onSubmit')(projects[0]);
@@ -50,15 +59,19 @@ test('should handle onSubmit', () => {
 
 test('should map state to props correctly', () => {
   const state = {
-    projects: projects,
-    projectManagers: users
+    projects: projects
   };
+
+  getActiveUsers.mockReturnValue(users);
+
   const props = {
     match: {params: {id: '1'}}
   };
+
   const map = mapStateToProps(state, props);
   expect(map.project).toEqual(projects[0]);
-  expect(map.projectManagers).toEqual(users);
+  expect(map.users).toEqual(users);
+  expect(getActiveUsers).toHaveBeenCalledWith(state);
 
 });
 

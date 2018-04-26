@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import BasicProjectDetails from './BasicProjectDetails';
 import BasicProjectDetailsForm from './BasicProjectDetailsForm';
 import { startUpdateProject } from '../actions/projects';
+import { getActiveUsers } from '../reducers';
+import { startSetUsers } from '../actions/users';
 
 export class ProjectDetailPage extends React.Component {
 
   constructor(props) {
     super(props);
-
+    this.props.getUsers();
     this.state = {
       editBasicProjectDetails: !!props.editBasicProjectDetails
     };
@@ -40,7 +42,7 @@ export class ProjectDetailPage extends React.Component {
               (
                 <BasicProjectDetailsForm 
                   onSubmit={this.onFinishedEditingBasicProjectDetails} 
-                  projectManagers={this.props.projectManagers}
+                  projectManagers={this.props.users}
                   project={this.props.project}
                 />
               ) : (
@@ -56,10 +58,11 @@ export class ProjectDetailPage extends React.Component {
 
 export const mapStateToProps = (state, props) => ({
   project: state.projects.find((project) => project.id === props.match.params.id),
-  projectManagers: state.projectManagers
+  users: getActiveUsers(state)
 });
 
 export const mapDispatchToProps = (dispatch) => ({
+  getUsers: () => dispatch(startSetUsers()),
   updateProject: (id, project) => dispatch(startUpdateProject(id, project))
 })
 
