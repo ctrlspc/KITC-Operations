@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render a ProjectTeamView component 1`] = `
+<div>
+  <ul>
+    <li
+      key="123"
+    >
+      Mr Test
+    </li>
+    <li
+      key="223"
+    >
+      Mr Testy
+    </li>
+    <li
+      key="323"
+    >
+      Mr Grumpy
+    </li>
+  </ul>
+</div>
+`;

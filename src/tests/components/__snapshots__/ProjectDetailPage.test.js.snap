@@ -15,6 +15,7 @@ exports[`should default to be in non-edit mode and render ProjectDetailPage comp
       </h1>
       <button
         className="button"
+        id="editBasicProjectDetailsButton"
         onClick={[Function]}
       >
         Edit
@@ -32,18 +33,56 @@ exports[`should default to be in non-edit mode and render ProjectDetailPage comp
             "displayName": "Mr Test",
             "email": "MrTest@test.com",
             "photoURL": "http://aurl.com/mrtest",
-            "uid": "1",
+            "uid": "123",
           }
         }
         projectType="int"
+        team={
+          Object {
+            "123": "Mr Test",
+            "223": "Mr Testy",
+            "323": "Mr Grumpy",
+          }
+        }
         title="first test project"
+      />
+    </div>
+  </div>
+  <div
+    className="box-section"
+  >
+    <div
+      className="box-section__header"
+    >
+      <h1>
+        Project Team
+      </h1>
+      <button
+        className="button"
+        id="editProjectTeamButton"
+        onClick={[Function]}
+      >
+        Edit
+      </button>
+    </div>
+    <div
+      className="box-section__body"
+    >
+      <Component
+        team={
+          Object {
+            "123": "Mr Test",
+            "223": "Mr Testy",
+            "323": "Mr Grumpy",
+          }
+        }
       />
     </div>
   </div>
 </div>
 `;
 
-exports[`should toggle to edit mode when the edit button is clicked 1`] = `
+exports[`should toggle BasicProjectDetailsForm to edit mode when the edit button is clicked 1`] = `
 <div
   className="content-container"
 >
@@ -70,11 +109,123 @@ exports[`should toggle to edit mode when the edit button is clicked 1`] = `
               "displayName": "Mr Test",
               "email": "MrTest@test.com",
               "photoURL": "http://aurl.com/mrtest",
-              "uid": "1",
+              "uid": "123",
             },
             "projectType": "int",
+            "team": Object {
+              "123": "Mr Test",
+              "223": "Mr Testy",
+              "323": "Mr Grumpy",
+            },
             "title": "first test project",
           }
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="box-section"
+  >
+    <div
+      className="box-section__header"
+    >
+      <h1>
+        Project Team
+      </h1>
+      <button
+        className="button"
+        id="editProjectTeamButton"
+        onClick={[Function]}
+      >
+        Edit
+      </button>
+    </div>
+    <div
+      className="box-section__body"
+    >
+      <Component
+        team={
+          Object {
+            "123": "Mr Test",
+            "223": "Mr Testy",
+            "323": "Mr Grumpy",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should toggle ProjectTeam to edit mode when the edit button is clicked 1`] = `
+<div
+  className="content-container"
+>
+  <div
+    className="box-section"
+  >
+    <div
+      className="box-section__header"
+    >
+      <h1>
+        Basic Project Details
+      </h1>
+      <button
+        className="button"
+        id="editBasicProjectDetailsButton"
+        onClick={[Function]}
+      >
+        Edit
+      </button>
+    </div>
+    <div
+      className="box-section__body"
+    >
+      <Component
+        description="testing some great stuff"
+        id="1"
+        onEditClick={[Function]}
+        projectManager={
+          Object {
+            "displayName": "Mr Test",
+            "email": "MrTest@test.com",
+            "photoURL": "http://aurl.com/mrtest",
+            "uid": "123",
+          }
+        }
+        projectType="int"
+        team={
+          Object {
+            "123": "Mr Test",
+            "223": "Mr Testy",
+            "323": "Mr Grumpy",
+          }
+        }
+        title="first test project"
+      />
+    </div>
+  </div>
+  <div
+    className="box-section"
+  >
+    <div
+      className="box-section__header"
+    >
+      <h1>
+        Project Team
+      </h1>
+    </div>
+    <div
+      className="box-section__body"
+    >
+      <ProjectTeamForm
+        onSubmit={[Function]}
+        team={
+          Array [
+            "123",
+            "223",
+            "323",
+          ]
         }
       />
     </div>
@@ -109,10 +260,46 @@ exports[`show edit detail views 1`] = `
               "displayName": "Mr Test",
               "email": "MrTest@test.com",
               "photoURL": "http://aurl.com/mrtest",
-              "uid": "1",
+              "uid": "123",
             },
             "projectType": "int",
+            "team": Object {
+              "123": "Mr Test",
+              "223": "Mr Testy",
+              "323": "Mr Grumpy",
+            },
             "title": "first test project",
+          }
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="box-section"
+  >
+    <div
+      className="box-section__header"
+    >
+      <h1>
+        Project Team
+      </h1>
+      <button
+        className="button"
+        id="editProjectTeamButton"
+        onClick={[Function]}
+      >
+        Edit
+      </button>
+    </div>
+    <div
+      className="box-section__body"
+    >
+      <Component
+        team={
+          Object {
+            "123": "Mr Test",
+            "223": "Mr Testy",
+            "323": "Mr Grumpy",
           }
         }
       />

@@ -22,10 +22,14 @@ test('should render the CreateProjectPage component correctly', () => {
   expect(wrapper).toMatchSnapshot();
 });
 
-test('should handle onSubmit', () => {
-  wrapper.find('BasicProjectDetailsForm').prop('onSubmit')(projects[0]);
-  expect(addProjectMock).toHaveBeenLastCalledWith(projects[0]);
-  expect(history.push).toHaveBeenLastCalledWith('/');
+test('should handle onSubmit', (done) => {
+  addProjectMock.mockReturnValue(Promise.resolve('123'));
+  wrapper.find('BasicProjectDetailsForm').prop('onSubmit')(projects[0]).then(() => {
+    expect(addProjectMock).toHaveBeenLastCalledWith(projects[0]);
+    expect(history.push).toHaveBeenLastCalledWith('/project/123');
+    done();
+  });
+  
 })
 
 test('should map state to props correctly', () => {

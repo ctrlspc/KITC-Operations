@@ -6,6 +6,10 @@
   padding: $s-size;
 }
 
+.checkbox-input {
+  margin-right: $s-size;
+}
+
 .select {
   @extend .text-input;
 }

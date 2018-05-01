@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render a checkbox for all users 1`] = `
+<form
+  className="form"
+  onSubmit={[Function]}
+>
+  <label
+    className="label"
+    key="123"
+  >
+    <input
+      checked={false}
+      className="checkbox-input"
+      name="123"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    Mr Test
+  </label>
+  <label
+    className="label"
+    key="223"
+  >
+    <input
+      checked={false}
+      className="checkbox-input"
+      name="223"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    Mr Testy
+  </label>
+  <label
+    className="label"
+    key="323"
+  >
+    <input
+      checked={false}
+      className="checkbox-input"
+      name="323"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    Mr Grumpy
+  </label>
+  <div
+    className="form__section"
+  >
+    <button
+      className="button"
+    >
+      Save Team
+    </button>
+  </div>
+</form>
+`;
+
+exports[`should select those users that are passed into the team prop 1`] = `
+<form
+  className="form"
+  onSubmit={[Function]}
+>
+  <label
+    className="label"
+    key="123"
+  >
+    <input
+      checked={true}
+      className="checkbox-input"
+      name="123"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    Mr Test
+  </label>
+  <label
+    className="label"
+    key="223"
+  >
+    <input
+      checked={true}
+      className="checkbox-input"
+      name="223"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    Mr Testy
+  </label>
+  <label
+    className="label"
+    key="323"
+  >
+    <input
+      checked={false}
+      className="checkbox-input"
+      name="323"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    Mr Grumpy
+  </label>
+  <div
+    className="form__section"
+  >
+    <button
+      className="button"
+    >
+      Save Team
+    </button>
+  </div>
+</form>
+`;

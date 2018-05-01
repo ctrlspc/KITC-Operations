@@ -17,8 +17,7 @@ export const startSetProjects = () => {
             id:childsnapshot.key,
             ...childsnapshot.val()
           });
-        });
-
+        });        
         dispatch(setProjects(projects));
       });
   };
@@ -40,6 +39,8 @@ export const startAddProject = ({title, description, projectManager, projectType
           id:ref.key,
           ...project
         }));
+
+        return Promise.resolve(ref.key);
       });
   };
 };

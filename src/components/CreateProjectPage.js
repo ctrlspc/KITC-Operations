@@ -14,8 +14,10 @@ export class CreateProjectPage extends React.Component {
   }
 
   onSubmit = (project) => {
-    this.props.addProject(project);
-    this.props.history.push('/');
+    return this.props.addProject(project).then((projectID) => {
+      this.props.history.push(`/project/${projectID}`);
+    });    
+    
   };
 
   render () {

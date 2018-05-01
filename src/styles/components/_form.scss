@@ -6,6 +6,14 @@
   }
 }
 
+.label {
+  margin: 0;
+}
+
+.form__section {
+  margin-top: $s-size;
+}
+
 .form__error {
   margin: 0 0 $m-size 0;
   font-style: italic;

@@ -64,10 +64,17 @@ exports[`should render the ProjectList component correctly with projects 1`] = `
           "displayName": "Mr Test",
           "email": "MrTest@test.com",
           "photoURL": "http://aurl.com/mrtest",
-          "uid": "1",
+          "uid": "123",
         }
       }
       projectType="int"
+      team={
+        Object {
+          "123": "Mr Test",
+          "223": "Mr Testy",
+          "323": "Mr Grumpy",
+        }
+      }
       title="first test project"
     />
     <Component
@@ -79,10 +86,17 @@ exports[`should render the ProjectList component correctly with projects 1`] = `
           "displayName": "Mr Testy",
           "email": "MrTesty@test.com",
           "photoURL": "http://aurl.com/mrtesty",
-          "uid": "2",
+          "uid": "223",
         }
       }
       projectType="int"
+      team={
+        Object {
+          "123": "Mr Test",
+          "223": "Mr Testy",
+          "323": "Mr Grumpy",
+        }
+      }
       title="second test project"
     />
     <Component
@@ -94,10 +108,17 @@ exports[`should render the ProjectList component correctly with projects 1`] = `
           "displayName": "Mr Grumpy",
           "email": "MrGrumpy@test.com",
           "photoURL": "http://aurl.com/mrgrumpy",
-          "uid": "3",
+          "uid": "323",
         }
       }
       projectType="int"
+      team={
+        Object {
+          "123": "Mr Test",
+          "223": "Mr Testy",
+          "323": "Mr Grumpy",
+        }
+      }
       title="third test project"
     />
   </div>

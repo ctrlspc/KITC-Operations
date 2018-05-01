@@ -4,7 +4,7 @@ import { ProjectDetailPage, mapStateToProps, mapDispatchToProps } from '../../co
 
 import projects from '../fixtures/projects';
 import users from '../fixtures/users';
-
+import profiles from '../fixtures/profiles';
 import { startUpdateProject } from '../../actions/projects';
 import { getActiveUsers } from '../../reducers';
 jest.mock('../../actions/projects');
@@ -30,15 +30,46 @@ test('show edit detail views', () => {
   expect(wrapper).toMatchSnapshot();
 });
 
-test('should toggle to edit mode when the edit button is clicked', () => {
+test('should toggle ProjectTeam to edit mode when the edit button is clicked', () => {
   const wrapper = shallow(
-    <ProjectDetailPage project={projects[0]} editBasicProjectDetails={false} getUsers={getUsers}/>
+    <ProjectDetailPage project={projects[0]} editProjectTeam={false} getUsers={getUsers}/>
   );
-  wrapper.find('button').simulate('click');
+  expect(wrapper.state('editProjectTeam')).toBeFalsy();
+  wrapper.find('#editProjectTeamButton').simulate('click');
+  expect(wrapper.state('editProjectTeam')).toBeTruthy();
   expect(wrapper).toMatchSnapshot();
 });
 
-test('should handle onSubmit', () => {
+test('should handle ProjectTeamForm onSubmit event', () => {
+
+  const updateProject = jest.fn(() => Promise.resolve({}));
+  const project = projects[0];
+  const history = { push: jest.fn() };
+  const wrapper = shallow(
+    <ProjectDetailPage 
+      updateProject={updateProject} 
+      history={history}
+      project={project}
+      editProjectTeam={true}
+      getUsers={getUsers}
+      users={users}
+    />
+  );
+  wrapper.find('ProjectTeamForm').prop('onSubmit')([profiles[0].uid,profiles[1].uid]);
+  expect(updateProject).toHaveBeenLastCalledWith(projects[0].id, {team:{'123':'Mr Test', '223':'Mr Testy'}});
+  expect(wrapper.state.editProjectTeam).toBeFalsy();
+  
+});
+
+test('should toggle BasicProjectDetailsForm to edit mode when the edit button is clicked', () => {
+  const wrapper = shallow(
+    <ProjectDetailPage project={projects[0]} editBasicProjectDetails={false} getUsers={getUsers}/>
+  );
+  wrapper.find('#editBasicProjectDetailsButton').simulate('click');
+  expect(wrapper).toMatchSnapshot();
+});
+
+test('should handle BasicProjectDetailsForm onSubmit event', () => {
 
   const updateProject = jest.fn(() => Promise.resolve({}));
   const project = projects[0];
